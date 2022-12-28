@@ -7,24 +7,30 @@ date_default_timezone_set('Asia/Bangkok');
  */
 class Database {
     /** DSN -> Data Source Name */
-    private $host = "localhost";
-    private $dbname = "admin";
-    private $username = "root";
-    private $password = "";
-    private $response;
-    private $conn;
+    private static $host = 'localhost';
+    private static $dbname = 'w3schools';
+    private static $username = 'root';
+    private static $password = '';
+    private static $response;
+    private static $connect = null;
 
-    private function connect() {
-        $this->conn = null;
+    private static function connect() {
         try{
-            $this->conn = new PDO("mysql:host=" . $this->host . ";dbname=" . $this->dbname, $this->username, $this->password);
-            $this->conn->exec("set names utf8");
-            $this->conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-        }catch(PDOException $exception){
-            echo "Database could not be connected: " . $exception->getMessage();
+            self::$connect = new PDO('mysql:host='.self::$host.';
+                                        dbname='.self::$dbname.'; 
+                                        charset=utf8', 
+                                        self::$username, 
+                                        self::$password);
+            self::$connect->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+            // ตั้งค่า ตัวเลขใน SQL ได้
+            self::$connect->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
+            return self::$connect;
+        }catch(PDOException $e){
+            echo 'Database could not be connected: ' . $e->getMessage();
+            exit();
         }
-        return $this->conn;
     }
 }
 
+$conn = Database::connect();
 ?>
