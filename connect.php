@@ -11,22 +11,26 @@ class Database {
     private $dbname = "w3schools";
     private $username = "root";
     private $password = "";
-    private $response;
-    private $conn;
+    // private $response;
+    private $connect = null;
 
-    private function connect() {
-        $this->conn = null;
+    public function connect() {
         try{
-            $this->conn = new PDO("mysql:host=" . $this->host . ";dbname=" . $this->dbname, $this->username, $this->password);
-            $this->conn->exec("set names utf8");
-            $this->conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+            $this->connect = new PDO("mysql:host={$this->host};
+                                    dbname={$this->dbname}, 
+                                    charset=utf8",
+                                    $this->username, 
+                                    $this->password);
+            $this->connect->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         }catch(PDOException $exception){
             echo "Database could not be connected: " . $exception->getMessage();
+            exit();
         }
-        return $this->conn;
+        return $this->connect;
     }
 }
 
 $database = new Database;
 $conn = $database->connect();
+print_r($conn);
 ?>
