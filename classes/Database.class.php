@@ -1,7 +1,7 @@
 <?php 
-// session_start();
-// error_reporting(E_ALL); 
-// date_default_timezone_set('Asia/Bangkok');
+session_start();
+error_reporting(E_ALL); // 0
+date_default_timezone_set('Asia/Bangkok');
 /**
  * Connect Database Class
  */
@@ -14,6 +14,7 @@ class Database {
     private static $response = true;
     private static $connect = null;
 
+    /** Class Connect Mysqy */
     public static function connect() {
         try{
             self::$connect = new PDO('mysql:host='.self::$host.';
@@ -22,7 +23,7 @@ class Database {
                                         self::$username, 
                                         self::$password);
             self::$connect->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-            // ตั้งค่า ตัวเลขใน SQL ได้
+            // ตั้งค่า ใช้ตัวเลขใน SQL ได้ ผ่าน Sql Limit
             self::$connect->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
             return self::$connect;
         }catch(PDOException $e){
@@ -33,21 +34,46 @@ class Database {
 
     public static function query($query = null, $params = array()) {
         if(self::$connect instanceof PDO){
-            /** Query SQL */
-            $statement = self::$connect->prepare($query);
-            /**  */
-            $statement->execute($params);
-            self::$response = $statement->fetchAll(PDO::FETCH_ASSOC);
-
-
-            print_r(self::$response);
+            try{
+                /** Query SQL */
+                $statement = self::$connect->prepare($query);
+                /** Ingetion */
+                $statement->execute($params);
+                /** explode SQL Array [0] */
+                $command = strtoupper(explode(' ', $query)[0]);
+                switch ($command) {
+                    case 'SELECT' :
+                        /** SELECT SQL */
+                        self::$response = $statement->fetchAll(PDO::FETCH_ASSOC);
+                        break;
+                    case 'INSERT' :
+                        /** INSERT SQL */
+                        self::$response = self::$connect->lastInsertId();
+                        break;
+                    default:
+                        /** UPDATE, DELETE SQL */
+                        self::$response = $statement->rowCount();
+                }
+                // print_r(self::$response);
+                return self::$response;
+            } catch (Throwable $e) {
+                http_response_code(500);
+                echo "Err : " . $e->getMessage();
+                exit();
+            }
         }else{
-            print_r(self::$connect);
+            http_response_code(500);
+            echo 'Plese connected DataBase';
+            exit();
         }
     }
 }
-/** Static Connect */
+/** TEST Static Connect */
 Database::connect();
 // print_r($conn);
-Database::query("SELECT * FROM categories");
+// Database::query();
+// Database::query("SELECT * FROM categories");
+// Database::query("UPDATE `categories` SET `Description` = 'Cheeses' WHERE `categories`.`CategoryID` = 4");
+// Database::query("INSERT INTO `categories` ( `CategoryName`, `Description`) VALUES ('sdsds', 'dsdsdsds')");
+// Database::query("DELETE FROM categories WHERE `categories`.`CategoryID` = 13");
 ?>
