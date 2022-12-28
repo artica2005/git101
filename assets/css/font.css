@@ -1,0 +1,24 @@
+body{
+  font-family: 'SeedRG';
+  }
+@font-face {
+    font-family: 'SeedTH';
+    src: url('../../fonts/EOT/LINESeedSansTH_W_Th.eot');
+    src: url('../../fonts/EOT/LINESeedSansTH_W_Th.eot?#iefix') format('embedded-opentype'),
+    url('../../fonts/WOFF/LINESeedSansTH_W_Th.woff') format('woff'),
+    url('../../fonts/TTF/LINESeedSansTH_Th.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+  
+  }
+
+  @font-face {
+    font-family: 'SeedRG';
+    src: url('../../fonts/EOT/LINESeedSansTH_W_Rg.eot');
+    src: url('../../fonts/EOT/LINESeedSansTH_W_Rg.eot?#iefix') format('embedded-opentype'),
+    url('../../fonts/WOFF/LINESeedSansTH_W_Rg.woff') format('woff'),
+    url('../../fonts/TTF/LINESeedSansTH_Rg.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+  
+  }
