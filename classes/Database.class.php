@@ -1,7 +1,7 @@
 <?php 
-session_start();
-error_reporting(E_ALL); // 0
-date_default_timezone_set('Asia/Bangkok');
+session_start(); // Section Start
+error_reporting(E_ALL); // 0 , E_ALL & ~E_NOTICE
+date_default_timezone_set('Asia/Bangkok'); // Thai TimeZone +07.00
 /**
  * Connect Database Class
  */
@@ -14,7 +14,7 @@ class Database {
     private static $response = true;
     private static $connect = null;
 
-    /** Class Connect Mysqy */
+    /** Static Class Connect Mysqy */
     public static function connect() {
         try{
             self::$connect = new PDO('mysql:host='.self::$host.';
@@ -31,7 +31,7 @@ class Database {
             exit();
         }
     }
-
+    /** Static Class Mysql */
     public static function query($query = null, $params = array()) {
         if(self::$connect instanceof PDO){
             try{
