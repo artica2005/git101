@@ -1,36 +1,39 @@
 <?php 
+/**
+ **** AppzStory Shopping Cart System PHP MySQL ****
+ * Connect Database PHP PDO
+ * 
+ * @link https://appzstory.dev
+ * @author Yothin Sapsamran (Jame AppzStory Studio)
+ */
 session_start();
 error_reporting(E_ALL); 
 date_default_timezone_set('Asia/Bangkok');
-/**
- * Connect Database
- */
+/** Class Database สำหรับติดต่อฐานข้อมูล */
 class Database {
-    /** DSN -> Data Source Name */
     private $host = "localhost";
-    private $dbname = "w3schools";
+    private $dbname = "shopping_cart";
     private $username = "root";
     private $password = "";
-    // private $response;
-    private $connect = null;
+    private $conn = null;
 
     public function connect() {
         try{
-            $this->connect = new PDO("mysql:host={$this->host};
-                                    dbname={$this->dbname}, 
-                                    charset=utf8",
-                                    $this->username, 
-                                    $this->password);
-            $this->connect->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+            $this->conn = new PDO('mysql:host='.$this->host.'; 
+                                dbname='.$this->dbname.'; 
+                                charset=utf8', 
+                                $this->username, 
+                                $this->password);
+            $this->conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         }catch(PDOException $exception){
-            echo "Database could not be connected: " . $exception->getMessage();
+            echo "ไม่สามารถเชื่อมต่อฐานข้อมูลได้: " . $exception->getMessage();
             exit();
         }
-        return $this->connect;
+        return $this->conn;
     }
 }
-
-$database = new Database;
-$conn = $database->connect();
-print_r($conn);
-?>
+/**
+ * ประกาศ Instance ของ Class Database
+ */
+$Database = new Database();
+$conn = $Database->connect();
