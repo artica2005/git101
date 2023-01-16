@@ -1,7 +1,27 @@
-# Responsive Website Restaurant
-## [Watch it on youtube](https://youtu.be/5RIFrZEjURA)
-### Responsive Website Restaurant
-Nice design of a responsive restaurant website 🥗 . It contains a header, home, about, services, menu, app, contact and a footer. It also has a fully developed light/dark mode 🌓 first for mobile then for desktop.
+# Sol store ecommerce
 
-Don't forget to join the channel for more videos like this.
-[Bedimcode](https://www.youtube.com/c/Bedimcode)
+    Ecommerce Website Using HTML CSS And JavaScript | Cosmetic Website
+
+# Video
+
+    https://youtu.be/-JVTtG8Kg7s
+
+# Description
+
+    We will make Ecommerce Cosmetic Website Using HTML CSS And JavaScript
+
+# Resource
+
+    Boxicons: https://boxicons.com/
+
+    Google font: https://fonts.google.com/
+
+    GlideJs: https://glidejs.com/docs/
+
+    Hover effect: https://github.com/robin-dela/hover-effect
+
+    Images: https://unsplash.com/
+
+# Preview
+
+!["Ecommerce Website Using HTML CSS And JavaScript"](https://user-images.githubusercontent.com/67447840/115731344-41002700-a3b1-11eb-9a47-f6d51534d6ce.png "Ecommerce Website Using HTML CSS And JavaScript")
