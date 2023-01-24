@@ -1,25 +1,44 @@
-# Responsive Ecommerce Website Using HTML CSS JAVASCRIPT
+# Anon - An eCommerce Website
 
-    Responsive Ecommerce Website Using HTML CSS JAVASCRIPT
+![GitHub repo size](https://img.shields.io/github/repo-size/codewithsadee/anon-ecommerce-website)
+![GitHub stars](https://img.shields.io/github/stars/codewithsadee/anon-ecommerce-website?style=social)
+![GitHub forks](https://img.shields.io/github/forks/codewithsadee/anon-ecommerce-website?style=social)
+[![Twitter Follow](https://img.shields.io/twitter/follow/codewithsadee?style=social)](https://twitter.com/intent/follow?screen_name=codewithsadee)
+[![YouTube Video Views](https://img.shields.io/youtube/views/3l8Lob4ysI0?style=social)](https://youtu.be/3l8Lob4ysI0)
 
-# Video
+Anon is a fully responsive ecommerce website, maximum compatiblities in all mobile devices, built using HTML, CSS, and JavaScript.
 
-    https://youtu.be/gWAV3HmWjmY
+## Demo
 
-# Description
+![Anon Desktop Demo](./website-demo-image/desktop.png "Desktop Demo")
+![Anon Mobile Demo](./website-demo-image/mobile.png "Mobile Demo")
 
-    We will Make Responsive Ecommerce Website Using HTML CSS JAVASCRIPT
+## Prerequisites
 
-# Resource
+Before you begin, ensure you have met the following requirements:
 
-    Google font: https://fonts.google.com/
+* [Git](https://git-scm.com/downloads "Download Git") must be installed on your operating system.
 
-    Boxicons: https://boxicons.com/
+## Installing Anon
 
-# Preview
+To install **Anon**, follow these steps:
 
-!["Responsive Ecommerce Website Using HTML CSS JAVASCRIPT"](https://user-images.githubusercontent.com/67447840/121814756-f017fb00-cc9c-11eb-997a-0acefe30d2e9.png "Responsive Ecommerce Website Using HTML CSS JAVASCRIPT")
+Linux and macOS:
 
-!["Responsive Ecommerce Website Using HTML CSS JAVASCRIPT"](https://user-images.githubusercontent.com/67447840/121814769-fefead80-cc9c-11eb-8621-238d694bf6d5.png "Responsive Ecommerce Website Using HTML CSS JAVASCRIPT")
+```bash
+sudo git clone https://github.com/codewithsadee/anon-ecommerce-website.git
+```
 
-!["Responsive Ecommerce Website Using HTML CSS JAVASCRIPT"](https://user-images.githubusercontent.com/67447840/121814779-0aea6f80-cc9d-11eb-937f-f9afea0569b6.png "Responsive Ecommerce Website Using HTML CSS JAVASCRIPT")
+Windows:
+
+```bash
+git clone https://github.com/codewithsadee/anon-ecommerce-website.git
+```
+
+## Contact
+
+If you want to contact me you can reach me at [Twitter](https://www.twitter.com/codewithsadee).
+
+## License
+
+This project is **free to use** and does not contains any license.
